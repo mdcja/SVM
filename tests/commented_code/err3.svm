@@ -1,0 +1,3 @@
+# invalid instruction
+        MEM 10
+        HALT

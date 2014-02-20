@@ -1,0 +1,27 @@
+        # this program loads data and stores it
+ONE     DATA 1
+TWO     DATA 2
+THREE   DATA 3
+RESULT  DATA 0
+        # start program
+        LOAD A1, ONE        # load address 1 into A1
+        OUTI A1
+        OUTC 10
+        STORE A1, RESULT    # store address A1 into RESULT
+        OUTI RESULT
+        OUTC 10
+        LOAD A2, TWO        # load address 2 into A2
+        OUTI A2
+        OUTC 10
+        STORE A2, RESULT    # store address A2 into RESULT
+        OUTI RESULT
+        OUTC 10
+        LOAD A1, THREE      # load address 3 into A1
+        LOADI R1, A1        # load data in A1 (3) into R1 
+        OUTR R1
+        OUTC 10
+        LOAD A2, RESULT     # load address of RESULT
+        STOREI R1, A2       # store 3 into RESULT
+        OUTI RESULT
+        OUTC 10
+        HALT                # end program

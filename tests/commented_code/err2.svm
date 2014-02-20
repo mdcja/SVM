@@ -1,0 +1,7 @@
+# same register used in subtract
+N1      DATA 1
+        LOAD A1, N1 # load one
+        LOAD R1, A1
+        SUBR R1, R1 # subtract with same register
+        OUTR R1     # output value
+        HALT

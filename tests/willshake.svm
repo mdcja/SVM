@@ -1,0 +1,24 @@
+        OUTC 111 # just output, from the Bard
+        OUTC 117
+        OUTC 116
+        OUTC 44
+        OUTC 32
+        OUTC 111
+        OUTC 117
+        OUTC 116
+        OUTC 44
+        OUTC 32
+        OUTC 98
+        OUTC 114
+        OUTC 105
+        OUTC 101
+        OUTC 102
+        OUTC 32
+        OUTC 99
+        OUTC 97
+        OUTC 110
+        OUTC 100
+        OUTC 108
+        OUTC 101
+        OUTC 10
+        HALT

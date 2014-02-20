@@ -1,0 +1,3 @@
+# this program doesnt do anything!
+        OUTC 110   # newline
+        HALT    # stop program!

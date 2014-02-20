@@ -1,0 +1,25 @@
+# Tests jump instructions
+N1      DATA 4
+N2      DATA -5
+        JMP START
+        JMP START
+ZER     OUTC 90    # Z
+        OUTC 10
+        JMP S
+NEG     OUTC 78     # N
+        OUTC 10
+        HALT
+        JMP START
+        JMP START
+START   LOAD A1, N1     # load 4
+        LOADI R1, A1
+        LOAD A2, N2     # load 4
+        LOADI R2, A2
+        SUBR R1, R2       # sub 4
+        JMPZ ZER
+        HALT
+S       LOAD A1, 4
+        LOADI R2, A1
+        SUB R1, R2      # -4
+        JMPN NEG
+        HALT

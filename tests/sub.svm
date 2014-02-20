@@ -1,0 +1,127 @@
+        LOAD A1,N1     # load 45 into R1
+        LOADI R1,A1
+        OUTR R1
+        OUTC 45         # -
+        OUT 25
+        OUTC 61
+        SUB R1,25      # R1 = 45 - 25
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N1     # load 45
+        LOADI R1,A1
+        OUTR R1
+        OUTC 45         # -
+        OUT -5
+        OUTC 61         # =
+        SUB R1,-5      # R1 = 45 - - 5
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N3     # load -5 into R1
+        LOADI R1,A1
+        OUTR R1
+        OUTC 45         # -
+        OUT 45
+        OUTC 61
+        SUB R1,45      # R1 = -5 - 45
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N3     # load -5 into R1
+        LOADI R1,A1    
+        OUTR R1
+        OUTC 45         # -
+        OUT -60
+        OUTC 61         # =
+        SUB R1,-60     # R1 = -5 - -60
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N5     # load 32760 into R1
+        LOADI R1,A1
+        OUTR R1
+        OUTC 45         # -
+        OUT -60
+        OUTC 61         # =
+        SUB R1,-60     # R1 =  32760 - - 60
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N4     # load -60 into R1
+        LOADI R1,A1
+        OUTR R1
+        OUTC 45         # -
+        OUT 32760
+        OUTC 61         # =
+        SUB R1,32760   # R1 = -60 - 32760
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N1     # load 45 into R1
+        LOADI R1,A1
+        LOAD A2,N2     # load 25 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = 45 - 25
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N1     # load 45 into R1
+        LOADI R1,A1
+        LOAD A2,N3     # load -5 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = 45 - -5 
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N3     # load -5 into R1
+        LOADI R1,A1
+        LOAD A2,N1     # load 45 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = -5 - 45
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N3     # load -5 into R1
+        LOADI R1,A1
+        LOAD A2,N4     # load -60 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = -5 - -60
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N5     # load 32760 into R1
+        LOADI R1,A1
+        LOAD A2,N4     # load -60 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = 32760 - - 60
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        LOAD A1,N4     # load -60 into R1
+        LOADI R1,A1
+        LOAD A2,N5     # load 32760 into R2
+        LOADI R2,A2
+        OUTR R1
+        OUTC 45         # -
+        OUTR R2
+        OUTC 61         # =
+        SUBR R1,R2     # R1 = -60 - 32760
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        HALT        # terminate program
+N1      DATA 45
+N2      DATA 25
+N3      DATA -5
+N4      DATA -60
+N5      DATA 32760
+

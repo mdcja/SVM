@@ -1,0 +1,30 @@
+# this program tests the out commands
+# OUT
+# OUTC
+# OUTR
+# OUTRC
+# OUTI
+# OUTIC
+        OUTC 74     # J
+        OUTC 117    # u
+        OUTC 108    # l
+        OUTC 105    # i
+        OUTC 97     # a
+        OUTC 110    # n
+        OUT  22
+        OUTC 10     # newline
+TNUM    DATA 201
+TCHAR   DATA 67   # C
+        LOAD A1, TNUM
+        LOADI R1, A1
+        OUTR R1
+        OUTC 10     # newline
+        LOAD A2, TCHAR
+        LOADI R2, A2
+        OUTRC R2
+        OUTC 10     # newline
+        OUTI A1
+        OUTC 10
+        OUTIC A2
+        OUTC 10
+        HALT

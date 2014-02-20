@@ -1,0 +1,148 @@
+# Test addition
+# Numbers to work with
+N1      DATA 37
+N2      DATA 54
+N3      DATA 25
+N4      DATA -5
+N5      DATA -30
+N6      DATA -45
+N7      DATA 5
+N8      DATA 40
+N9      DATA -20
+N10     DATA 32760
+N11     DATA -32760
+# ADD
+        # Two positive numbers (37 + 54 = 91 )
+        LOAD A1, N1     # load 37 into A1
+        LOADI R1, A1    # load A1 into R1
+        OUTR R1         # 37
+        OUTC 43         # +
+        OUT 54          # 54
+        OUTC 61         # =
+        ADD R1, 54      # R1 = 37 + 54
+        OUTR R1         # print R1 (91)
+        OUTC 10         # newline
+        # 1'st positive, 2'nd negative (25 + -5 = 20)
+        LOAD A1, N3     # load N3 into A1
+        LOADI R1, A1    # load A1 into R1
+        OUTR R1         # 25
+        OUTC 43         # +
+        OUT -5          # -5
+        OUTC 61         # =
+        ADD R1, -5      # R1 = 25 + -5
+        OUTR R1         # print R1 ( 20 )
+        OUTC 10         # newline
+        # 1'st negative, 2'nd positive (-30 + 25 = -5)
+        LOAD A1, N5     # load -30
+        LOADI R1, A1    # load -30 into R1
+        OUTR R1         # -30
+        OUTC 43         # +
+        OUT 25          # 25
+        OUTC 61         # =
+        ADD R1, 25      # R1 = -30 + 25
+        OUTR R1         # print R1 ( -5 )
+        OUTC 10         # newline
+        # both negative (-45 + -5 = -50 )
+        LOAD A1, N6     # load N6 into A1
+        LOADI R1, A1    # load N6 into R1
+        OUTR R1         # -45
+        OUTC 43         # +
+        OUT -5          # -5
+        OUTC 61         # =
+        ADD R1, -5      # R1 = -45 + -5
+        OUTR R1         # print R1 ( -50 )
+        OUTC 10         # newline
+        # positive overflow (32760 + 37 = OVERFLOW )
+        LOAD A1, N10    # load N10 into A1
+        LOADI R1, A1    # load N10 into R1
+        OUTR R1         # 32760
+        OUTC 43         # +
+        OUT 37          # 37
+        OUTC 61         # =
+        ADD R1, 37      # R1 = 32760 + 37 
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        # negative overflow ( -32760 + - 30 = UNDERFLOW )
+        LOAD A1, N5     # load N5 into A1
+        LOADI R1, A1    # load -30 into R1
+        OUTR R1         # -30
+        OUTC 43         # +
+        OUT -32760      # -32760
+        OUTC 61         # =
+        ADD R1, -32760  # R1 = -30 + -32760
+        OUTR R1
+        OUTC 10         # newline
+# ADDR
+        # Two positive numbers (37 + 54 = 91 )
+        LOAD A1, N1     # load 37 into A1
+        LOADI R1, A1    # load 37 into R1
+        LOAD A2, N2     # load 54 into A2
+        LOADI R2, A2    # load 54 into R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R1, R2     # R1 = 37 + 54
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        # 1'st positive, 2'nd negative (25 + -5 = 20)
+        LOAD A1, N3     # load 37 into A1
+        LOADI R1, A1    # load 37 into R1
+        LOAD A2, N4     # load -5 into A2
+        LOADI R2, A2    # load -5 into R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R1, R2     # R1 = 25 + -5
+        OUTR R1         # print R1
+        OUTC 10         # newline
+        # 1'st negative, 2'nd positive (-30 + 25 = -5)
+        LOAD A1, N3     # load 25
+        LOADI R1, A1    # load 25 into R1
+        LOAD A2, N5     # load -30
+        LOADI R2, A2    # load -30 into R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R2, R1     # R2 = 25 + -30
+        OUTR R2         # print ans
+        OUTC 10         # newline
+        # both negative (-45 + -5 = -50 )
+        LOAD A1, N6     # load -45
+        LOADI R1, A1    # load -45 into R1
+        LOAD A2, N4     # load -5
+        LOADI R2, A2    # load -5 into R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R1, R2     # R1 = -45 + -5
+        OUTR R1         # print answer
+        OUTC 10         # newline
+        # positive overflow (32760 + 37 = OVERFLOW )
+        LOAD A1, N10    # load N10
+        LOADI R1, A1    # load N10 into R1
+        LOAD A2, N1     # Load N1 into A2
+        LOADI R2, A2    # load A2 into R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R1, R2     # R1 = 32760 + 37
+        OUTR R1         # print result
+        OUTC 10         # newline
+        # negative overflow ( -32760 + - 30 = UNDERFLOW )
+        LOAD A1, N11    # load -32760
+        LOADI R1, A1    # put it in R1
+        LOAD A2, N9     # load -30
+        LOADI R2, A2    # put it in R2
+        OUTR R1
+        OUTC 43         # +
+        OUTR R2
+        OUTC 61         # =
+        ADDR R1, R2     # R1 = -32760 + - 30
+        OUTR R1         # print it
+        OUTC 10         # newline
+        HALT            # done

@@ -1,0 +1,28 @@
+# Tests jump instructions
+BEG     OUTC 79         # O
+        OUTC 10
+        HALT
+N1      DATA 5
+N2      DATA -5
+        JMP START
+        JMP START
+ZER     OUTC 90    # Z
+        OUTC 10
+        JMP S
+NEG     OUTC 78     # N
+        OUTC 10
+        LOAD A1, N1
+        LOADI R1, A1
+        ADD R1, 32765
+        JMPO BEG
+        HALT
+        JMP START
+        JMP START
+START   LOAD A1, N1     # load 5
+        LOADI R1, A1
+        ADD R1, -5
+        JMPZ ZER
+        HALT
+S       ADD R1, -5       # -5
+        JMPN NEG
+        HALT

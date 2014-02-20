@@ -1,0 +1,2 @@
+        OUTC 110   # newline
+        HALT    # stop program!
