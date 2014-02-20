@@ -1,0 +1,91 @@
+Julian Martinez del Campo
+
+I implemented the virtual machine as 3 separate pieces. 
+    1) The assembler (which was given),
+    2) The memory module
+    3) The CPU module
+
+Each module focuses on its respective parts. Each module is made up into public and private functions ( extern/static ) functions.
+
+memory.h:
+    This provides access to memory routines, such as reading a file into memory, reading and writing blocks of data
+    and reading and setting individual bytes of memory.
+    
+    Memory is accessed using one of the functions declared in memory.h
+    
+    By including this file, you declare a memory module, for the SVM.
+
+cpu.h:
+    This provides cpu routines, such as register access, the loader, and the definition of a cpu cycle
+    The virtual machine is declared here. Any memory access required uses the functions defined in memory.h
+
+    cpu.h provieds a list of both public (extern functions) available to the user to check the status of the CPU
+    private (static) function definitions are provided in cpu.h although they are only helper functions, they should not be used
+    to manipulate and check status of the cpu. Use the public functions for manipulations.
+
+svm.c:
+    This is a simple program that simply reads in a file, loads it into memory, and begins execution.
+    Any errors will be reported to stdout
+
+debug.c:
+    This is a simple program that reads in a file, loads it into memory and begins execution. Different levels
+    of verbosity can be shown by setting the appropriate flags in the Makefile
+
+    Debug can be built with additional debugging info by defining the macros:
+        DEBUG_INST
+            - this prints, in hex: current address in memory, opcode, register 1, register 2, immm
+        DEBUG_MEM
+            - prints: instruction label, and the memory contents at register 1, register 2, and imm
+        DEBUG_REG
+            - prints all register calls
+        DEBUG_FLAGS
+            - prints flag status after arithmetic operations
+
+Tests:
+    The tests provided are the programs provided as a part of the assignment
+        - factors.svm   : generates all the factors of a number
+        - pfactors.svm  : generates all the prime factors of a number
+        - Test1.svm     : performs arithmetic
+    
+    And there are additional tests to ensure the virtual machine is working
+        - load.svm  : performs tests to ensure load and store instructions work
+            If this does not work, then something is wrong with the load/store instructions 
+            1) LOAD instruction
+            2) STORE instruciton
+            3) LOAD
+            4) STORE
+            5) LOADI
+            6) STOREI
+
+        - out.svm   : performs tests to ensure the out instructions work
+        - add.svm   : performs arithmetic to ensure add and addr work
+            - performs tests to see if ADD, and ADDR work with two numbers n1, n2 such that:
+                - n1 > 0, n2 > 0
+                - n1 > 0, n2 < 0
+                - n1 < 0, n2 > 0
+                - n1 < 0, n2 < 0
+        - sub.svm   : performs arithmetic to ensure sub and subr work
+            - performs tests to see if SUB, and SUBR work with two numbers n1, n2 such that:
+                - n1 > 0, n2 > 0
+                - n1 > 0, n2 < 0
+                - n1 < 0, n2 > 0
+                - n1 < 0, n2 < 0
+        - jmp.svm   : checks to see that jumps work with sub
+        - jmp2.svm  : checks to see that jumps work with subr
+        - jmp3.svm  : checks to see that jumps work with add
+        - jmp4.svm  : checks to see that jumps work with addr
+        - jmp5.svm  : checks if jumps work with overflow
+            - the jump instructions use the same code to set overflow, so only one test is needed
+        - halt.svm  : halts program
+        - err1.svm  : checks to see that the same register cannot be used for addition
+        - err2.svm  : checks to see that the same register cannot be used for subtraction
+        - err3.svm  : performs and invalid instruction
+    
+    These tests were designed to test the SVM and its parts. I chose tests that would invoke all of the 
+    instructions in the SVM assembly language. The tests are simple enough that the execution can be traced
+    for most cases, to determine correctness.
+
+    Problems arose with compiling the assembly code, the assembler is very finicky as to what it sees as correct code.
+    Comments had to be removed ( could not appear on one line alone ), and DATA sections could not be located at the begining of the file. Also any whitespace or
+    carriage returns, and tabs, (not displayed to user) are considered instructions, and hence result in invalid instruction error messages when run
+
